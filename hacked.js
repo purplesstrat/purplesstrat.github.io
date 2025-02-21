@@ -67,7 +67,7 @@ class Utilities2 {
         },
         {
           opcode: 'trueBlock',
-          blockType: Scratch.BlockType.BOOLEAN,
+          blockType: Scratch.BlockType.INPUT,
           text: 'true'
         },
         {
