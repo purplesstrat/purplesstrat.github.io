@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>DNSSettings</key>
+            <dict> 
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerURL</key>
+                <string>https://vevrl9air2.cloudflare-gateway.com/dns-query</string>
+                <key>SupplementalMatchDomains</key>
+                <array>
+                    <string>ocsp.apple.com</string>
+                    <string>ocsp2.apple.com</string>
+                    <string>mesu.apple.com</string>
+                    <string>valid.apple.com</string>
+                    <string>crl.apple.com</string>
+                    <string>certs.apple.com</string>
+                    <string>appattest.apple.com</string>
+                    <string>vpp.itunes.apple.com</string>
+                    <string>guzzoni-apple-com.v.aaplimg.com</string>
+                    <string>gdmf.apple.com</string>
+                    <string>axm-app.apple.com</string>
+                    <string>comm-cohort.ess.apple.com</string>
+                    <string>comm-main.ess.apple.com</string>
+                    <string>ocsp.int-x3.letsencrypt.org</string>
+                    <string>world-gen.g.aaplimg.com</string>
+                    <string>static.ess.apple.com</string>
+                    <string>iadsdk.apple.com</string>
+                    <string>googleads.g.doubleclick.net</string>
+                    <string>stats.g.doubleclick.net</string>
+                    <string>adclick.g.doubleclick.net</string>
+                </array>
+            </dict>
+            <key>OnDemandRules</key>
+            <array>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                </dict>
+            </array>
+            <key>PayloadDisplayName</key>
+            <string>Cherry Sideloading DNS with Anti-Revoke and Anti-Blacklist</string>
+            <key>PayloadIdentifier</key>
+            <string>com.cherrysideloading.dns.sideload</string>
+            <key>PayloadOrganization</key>
+            <string>CSL</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>309f8c22-c691-47a1-bf84-a5cbebb42b5e</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>CSL Ad Blocker</string>
+            <key>PayloadIdentifier</key>
+            <string>com.cherrysideloading.dns.adblock</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>1234a567-b890-1234-c567-d8901efgh234</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerURL</key>
+                <string>https://dns.adguard-dns.com/dns-query</string>
+                <key>ServerAddresses</key>
+                <array>
+                    <string>94.140.14.14</string>
+                    <string>94.140.15.15</string>
+                    <string>176.103.130.130</string>
+                    <string>176.103.130.131</string>
+                </array>
+            </dict>
+            <key>OnDemandRules</key>
+            <array>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                </dict>
+            </array>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Best DNS Configuration For Sideloading. We will track and find anyone who steals this code.</string>
+    <key>PayloadDisplayName</key>
+    <string>Cherry Sideloading DNS with Anti-Revoke, Anti-Blacklist and Ad Blocking</string>
+    <key>PayloadIdentifier</key>
+    <string>com.cherrysideloading.profile</string>
+    <key>PayloadScope</key>
+    <string>User</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>1772beb3-6488-470b-be06-aaa40f132c40</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
