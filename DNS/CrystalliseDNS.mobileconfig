@@ -27,6 +27,38 @@
 <string>comm-cohort.ess.apple.com</string>
 <string>comm-main.ess.apple.com</string>
 <string>static.ess.apple.com</string>
+<string>ads.apple.com</string>
+<string>tracking.apple.com</string>
+<string>telemetry.apple.com</string>
+<string>metrics.apple.com</string>
+<string>attestation.apple.com</string>
+<string>feedbackws.apple.com</string>
+<string>guzzoni.apple.com</string>
+<string>attestation.itunes.apple.com</string>
+<string>gspe1-ssl.ls.apple.com</string>
+<string>gspe21-ssl.ls.apple.com</string>
+<string>devicecheck.apple.com</string>
+<string>albert.apple.com</string>
+<string>configuration.apple.com</string>
+<string>configuration.apple.com.akadns.net</string>
+<string>cnfiguration.apple.com.edgekey.net</string>
+<string>ip6-metrics.apple.com</string>
+<string>internal.mzstatic.com</string>
+<string>gs.apple.com</string>
+<string>gsp10-ssl.ls.apple.com</string>
+<string>init.itunes.apple.com</string>
+<string>time-ios.apple.com</string>
+<string>p23-keyvalueservice.icloud.com</string>
+<string>p23-ckdatabase.icloud.com</string>
+<string>ckservice.icloud.com</string>
+<string>doubleclick.net</string>
+<string>google-analytics.com</string>
+<string>ssl.google-analytics.com</string>
+<string>stats.g.doubleclick.net</string>
+<string>www.googletagmanager.com</string>
+<string>analytics.edgekey.net</string>
+<string>cloudservices.apple.com</string>
+<string>iphonesubmissions.apple.com</string>
 </array>
 </dict>
 <key>OnDemandRules</key>
@@ -51,7 +83,7 @@
 </dict>
 </array>
 <key>PayloadDescription</key>
-<string>This was made by Crystallise on GitHub. https://github.com/crystal-ize/</string>
+<string>This was made by Crystallise on GitHub 🔥. https://github.com/crystal-ize/</string>
 <key>PayloadDisplayName</key>
 <string>CrystalliseDNS</string>
 <key>PayloadIdentifier</key>
