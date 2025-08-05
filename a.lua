@@ -198,13 +198,29 @@ mt.__index = newcclosure(function(self, b)
     return oldindex(self, b)
 end)
 
+local runSpeed = 16
+local speedLoop
+
 MainStuffTab:CreateTextbox("WalkSpeed", function(text)
-    local val = tonumber(text) or 16
-    local hum = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-    if hum then
-        hum.WalkSpeed = val
-    end
+    runSpeed = tonumber(text) or 16
+
+    -- If the loop already exists, no need to create a new one
+    if speedLoop then return end
+
+    speedLoop = task.spawn(function()
+        while true do
+            task.wait(0.1)
+            local char = game.Players.LocalPlayer.Character
+            if char then
+                local hum = char:FindFirstChildOfClass("Humanoid")
+                if hum then
+                    hum.WalkSpeed = runSpeed
+                end
+            end
+        end
+    end)
 end)
+
 
 -- Infinite Jump
 local infJumpConnection
