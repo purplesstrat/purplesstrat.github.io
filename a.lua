@@ -15,19 +15,29 @@ local MainStuffTab = Window:NewSection("Main")
 local ESPTab = Window:NewSection("ESP")
 
 
+local autofarmRunning = false
+
 AutoFarmTab:CreateToggle("Auto Farm", function(value)
-    while value do
-        kill_all()
-    local char = game.Players.LocalPlayer.Character
-    if char and char.PrimaryPart then
-        for i = 1, 50 do
-            char:PivotTo(CFrame.new(0,0,0))
-            task.wait(0.01)
+    autofarmRunning = value
+
+    task.spawn(function()
+        while autofarmRunning do
+            kill_all()
+
+            local char = game.Players.LocalPlayer.Character
+            if char and char.PrimaryPart then
+                for i = 1, 50 do
+                    if not autofarmRunning then return end
+                    char:PivotTo(CFrame.new(0, 0, 0))
+                    task.wait()
+                end
+            end
+
+            task.wait(0.01) -- Delay between loops
         end
-    end
-    task.wait() -- Check delay if character is missing
-    end
+    end)
 end)
+
 -- Kill All Function
 function kill_all()
     for _, v in pairs(LocalPlayer.Backpack:GetChildren()) do
@@ -90,7 +100,9 @@ end
 
 MainStuffTab:CreateTextbox("Hitbox", function(text)
     local val = tonumber(text) or 10
+    while task.wait() do
     hitbox(val)
+        end
 end)
 
 -- WalkSpeed Spoofer (Client Only)
@@ -163,24 +175,35 @@ end)
 
 -- Skeleton ESP
 ESPTab:CreateButton("Skeleton ESP", function()
-    local SkeletonLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UniversalSkeleton.lua"))()
-    local Skeletons = {}
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UniversalSkeleton.lua"))()
 
-    for _, Player in next, Players:GetPlayers() do
-        table.insert(Skeletons, SkeletonLib:NewSkeleton(Player, true))
-    end
 
-    Players.PlayerAdded:Connect(function(Player)
-        table.insert(Skeletons, SkeletonLib:NewSkeleton(Player, true))
-    end)
+local Skeletons = {}
+for _, Player in next, game.Players:GetChildren() do
+	table.insert(Skeletons, Library:NewSkeleton(Player, true));
+end
+game.Players.PlayerAdded:Connect(function(Player)
+	table.insert(Skeletons, Library:NewSkeleton(Player, true));
+end)
 end)
 
 -- Radar ESP
 ESPTab:CreateButton("Radar ESP", function()
-    loadstring(game:HttpGet("https://purplesstrat.github.io/XHzGVodqAxo3tW4Pe7hzCnR0NG4CA9Ts%20Bmp5rJ1JwnVR8koJbc4gMJ0bCkL4rjAw%2005DY7LmUkAhKYsYHYRLiQ5crAJPkIDQZ.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/UILibs/refs/heads/main/ESP/Radar/Example"))()
 end)
 
 -- Chams ESP
 ESPTab:CreateButton("Chams ESP", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/UILibs/refs/heads/main/ESP/DrawingChams/Example"))()
+    local Players = game:GetService("Players")
+
+local function highlightPlayer(player)
+  local highlight = Instance.new("Highlight")
+  highlight.Parent = player.Character
+  highlight.FillColor = Color3.fromRGB(255, 0, 0)
+  highlight.OutlineColor = Color3.fromRGB(0, 0, 255)
+end
+
+for _, player in ipairs(Players:GetPlayers()) do
+  highlightPlayer(player)
+end
 end)
