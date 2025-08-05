@@ -14,29 +14,37 @@ local KillingTab = Window:NewSection("Kill")
 local MainStuffTab = Window:NewSection("Main")
 local ESPTab = Window:NewSection("ESP")
 
-
 local autofarmRunning = false
 
 AutoFarmTab:CreateToggle("Auto Farm", function(value)
     autofarmRunning = value
 
-    task.spawn(function()
-        while autofarmRunning do
-            kill_all()
+    if value then
+        task.spawn(function()
+            while autofarmRunning do
+                kill_all()
 
-            local char = game.Players.LocalPlayer.Character
-            if char and char.PrimaryPart then
-                for i = 1, 50 do
-                    if not autofarmRunning then return end
-                    char:PivotTo(CFrame.new(0, 0, 0))
-                    task.wait()
+                local char = game.Players.LocalPlayer.Character
+                if char and char.PrimaryPart then
+                    for i = 1, 50 do
+                        if not autofarmRunning then return end
+                        char:PivotTo(CFrame.new(0, 0, 0))
+                        task.wait()
+                    end
                 end
-            end
 
-            task.wait(0.01) -- Delay between loops
+                task.wait()
+            end
+        end)
+    else
+        -- Teleport to (-32, -118, 37) when turning off
+        local char = game.Players.LocalPlayer.Character
+        if char and char.PrimaryPart then
+            char:PivotTo(CFrame.new(-32, -118, 37))
         end
-    end)
+    end
 end)
+
 
 -- Kill All Function
 function kill_all()
