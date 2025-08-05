@@ -75,15 +75,29 @@ KillingTab:CreateButton("Kill All", function()
     kill_all()
 end)
 
-KillingTab:CreateButton("Remove Cooldown [BETA]", function()
+KillingTab:CreateButton("Remove Cooldown", function()
     local player = game.Players.LocalPlayer
+    local backpack = player:WaitForChild("Backpack")
+    local char = workspace:WaitForChild(player.Name)
 
     task.spawn(function()
-        while task.wait() do
-            local default = workspace:FindFirstChild(player.Name) and workspace[player.Name]:FindFirstChild("Default")
-            if default then
-                default:SetAttribute("Cooldown", -99999)
-                default:SetAttribute("IsActivated", false)
+        while task.wait(0.1) do
+            local tool = char:FindFirstChild("Default") -- check if gun is equipped
+            if tool and tool:IsA("Tool") then
+                -- Patch attributes
+                tool:SetAttribute("Cooldown", -99999)
+                tool:SetAttribute("IsActivated", false)
+
+                -- Refresh tool
+                tool.Parent = backpack
+                task.wait(0.1)
+                tool.Parent = char
+
+                print("Cooldown removed from Default tool.")
+
+                -- Wait for them to unequip and re-equip again
+                repeat task.wait() until not char:FindFirstChild("Default")
+                repeat task.wait() until char:FindFirstChild("Default")
             end
         end
     end)
