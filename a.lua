@@ -76,11 +76,19 @@ KillingTab:CreateButton("Kill All", function()
 end)
 
 KillingTab:CreateButton("Remove Cooldown [BETA]", function()
-while task.wait() do
-    workspace[LocalPlayer.Name]:FindFirstChild("Default").Cooldown = -99999
-    workspace[LocalPlayer.Name]:FindFirstChild("Default").IsActivated = false
-		end
+    local player = game.Players.LocalPlayer
+
+    task.spawn(function()
+        while task.wait() do
+            local default = workspace:FindFirstChild(player.Name) and workspace[player.Name]:FindFirstChild("Default")
+            if default then
+                default:SetAttribute("Cooldown", -99999)
+                default:SetAttribute("IsActivated", false)
+            end
+        end
+    end)
 end)
+
 
 -- Auto Kill All
 local autoKill = false
