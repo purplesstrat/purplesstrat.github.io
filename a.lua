@@ -74,35 +74,44 @@ end
 KillingTab:CreateButton("Kill All", function()
     kill_all()
 end)
+local cooldownLoop -- connection handler
 
-KillingTab:CreateButton("Remove Cooldown", function()
-    local player = game.Players.LocalPlayer
-    local backpack = player:WaitForChild("Backpack")
-    local char = workspace:WaitForChild(player.Name)
+KillingTab:CreateToggle("Remove Cooldown", function(value)
+    if value then
+        local player = game.Players.LocalPlayer
+        local backpack = player:WaitForChild("Backpack")
 
-    task.spawn(function()
-        while task.wait(0.1) do
-            local tool = char:FindFirstChild("Default") -- check if gun is equipped
-            if tool and tool:IsA("Tool") then
-                -- Patch attributes
-                tool:SetAttribute("Cooldown", -99999)
-                tool:SetAttribute("IsActivated", false)
+        cooldownLoop = task.spawn(function()
+            while true do
+                task.wait(0.25)
 
-                -- Refresh tool
-                tool.Parent = backpack
-                task.wait(0.1)
-                tool.Parent = char
+                local char = workspace:FindFirstChild(player.Name)
+                if not char then continue end
 
-                print("Cooldown removed from Default tool.")
+                local tool = char:FindFirstChild("Default")
+                if tool and tool:IsA("Tool") and not tool:GetAttribute("__Patched") then
+                    -- Set attributes
+                    tool:SetAttribute("Cooldown", -99999)
+                    tool:SetAttribute("IsActivated", false)
 
-                -- Wait for them to unequip and re-equip again
-                repeat task.wait() until not char:FindFirstChild("Default")
-                repeat task.wait() until char:FindFirstChild("Default")
+                    -- Unequip and re-equip to apply changes
+                    tool.Parent = backpack
+                    task.wait(0.1)
+                    tool.Parent = char
+
+                    print("[Cooldown Bypass] Patched and refreshed tool.")
+                end
             end
-        end
-    end)
-end)
+        end)
 
+    else
+        if cooldownLoop then
+            task.cancel(cooldownLoop)
+            cooldownLoop = nil
+            print("[Cooldown Bypass] Disabled.")
+        end
+    end
+end)
 
 -- Auto Kill All
 local autoKill = false
