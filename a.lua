@@ -106,6 +106,32 @@ function hitbox(size)
     end
 end
 
+MainStuffTab:CreateButton("Custom Gun Sound", function()
+    -- Load sound replacement script
+    loadstring(game:HttpGet("https://purplesstrat.github.io/mvsd-sound.lua"))()
+
+    -- Make sure file exists
+    if not isfile("pew.mp3") then
+        warn("pew.mp3 not found!")
+        return
+    end
+
+    -- Run sound override in background
+    task.spawn(function()
+        while task.wait() do
+            local player = game.Players.LocalPlayer
+            local char = workspace:FindFirstChild(player.Name)
+            if char and char:FindFirstChild("Default") then
+                local fire = char.Default:FindFirstChild("Fire")
+                if fire and fire:IsA("Sound") and fire.SoundId ~= getcustomasset("pew.mp3") then
+                    fire.SoundId = getcustomasset("pew.mp3")
+                end
+            end
+        end
+    end)
+end)
+
+
 MainStuffTab:CreateTextbox("Hitbox", function(text)
     local val = tonumber(text) or 10
     while task.wait() do
