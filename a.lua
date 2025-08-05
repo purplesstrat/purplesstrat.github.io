@@ -131,6 +131,14 @@ MainStuffTab:CreateButton("Custom Gun Sound", function()
     end)
 end)
 
+MainStuffTab:CreateButton("FE Invisible", function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
+	
+end)
+
 
 MainStuffTab:CreateTextbox("Hitbox", function(text)
     local val = tonumber(text) or 10
