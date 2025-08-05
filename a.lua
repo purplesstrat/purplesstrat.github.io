@@ -74,36 +74,37 @@ end
 KillingTab:CreateButton("Kill All", function()
     kill_all()
 end)
-local cooldownLoop -- connection handler
+
+
+local cooldownLoop -- thread handler
 
 KillingTab:CreateToggle("Remove Cooldown", function(value)
     if value then
-        local player = game.Players.LocalPlayer
-        local backpack = player:WaitForChild("Backpack")
+        local plr = game.Players.LocalPlayer
+        local backpack = plr:WaitForChild("Backpack")
 
         cooldownLoop = task.spawn(function()
-            while true do
-                task.wait(0.25)
+            while value do
+                task.wait(0.2)
+                local char = workspace:FindFirstChild(plr.Name)
+                if char then
+                    local tool = char:FindFirstChild("Default")
+                    if tool and tool:IsA("Tool") then
+                        if not tool:GetAttribute("__Patched") then
+                            tool:SetAttribute("Cooldown", -99999)
+                            tool:SetAttribute("IsActivated", false)
+                            tool:SetAttribute("__Patched", true)
 
-                local char = workspace:FindFirstChild(player.Name)
-                if not char then continue end
+                            tool.Parent = backpack
+                            task.wait(0.1)
+                            tool.Parent = char
 
-                local tool = char:FindFirstChild("Default")
-                if tool and tool:IsA("Tool") and not tool:GetAttribute("__Patched") then
-                    -- Set attributes
-                    tool:SetAttribute("Cooldown", -99999)
-                    tool:SetAttribute("IsActivated", false)
-
-                    -- Unequip and re-equip to apply changes
-                    tool.Parent = backpack
-                    task.wait(0.1)
-                    tool.Parent = char
-
-                    print("[Cooldown Bypass] Patched and refreshed tool.")
+                            repeat task.wait() until not char:FindFirstChild("Default")
+                        end
+                    end
                 end
             end
         end)
-
     else
         if cooldownLoop then
             task.cancel(cooldownLoop)
