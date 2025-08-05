@@ -13,6 +13,19 @@ local AutoFarmTab = Window:NewSection("AutoFarm")
 local KillingTab = Window:NewSection("Kill")
 local MainStuffTab = Window:NewSection("Main")
 local ESPTab = Window:NewSection("ESP")
+local Credits = Window:NewSection("Credits")
+
+Credits:CreateButton("PurplesStrat", function()
+    print("purplesstrat")
+end)
+Credits:CreateButton("nxyqbackup2", function()
+    print("nxyqbackup2")
+end)
+Credits:CreateButton("Fetch & Load Newest Version from GitHub", function()
+    print("Fetched latest version.\nLoading...")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/purplesstrat/purplesstrat.github.io/refs/heads/main/a.lua"))()
+end)
+
 
 local autofarmRunning = false
 
