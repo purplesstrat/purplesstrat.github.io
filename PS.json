@@ -25,20 +25,12 @@
           "downloadURL": "https://api.casp.dev/sign/unsigned/Cash%20App++_5.0_1753646599.ipa",
           "size": 9200000,
           "version": "5.0",
-          "buildVersion": null,
+          "buildVersion": "",
           "date": "2025-09-14T10:36:00+01:00",
-          "localizedDescription": null,
+          "localizedDescription": "",
           "minOSVersion": "13.0"
         }
-      ],
-      "appPermissions": {
-        "entitlements": [],
-        "privacy": {
-          "NSAccentColorName": "AccentColor",
-          "NSFaceIDUsageDescription": "We use Face ID for secure authentication."
-        }
-      },
-      "patreon": {}
+      ]
     },
     {
       "name": "Unbound",
@@ -46,7 +38,7 @@
       "marketplaceID": "",
       "developerName": "Unbound",
       "subtitle": "Discord Mod",
-      "localizedDescription": "unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip unbound.rip ",
+      "localizedDescription": "Unbound for iOS",
       "iconURL": "https://i.imgur.com/8DTiC5d.png",
       "tintColor": "#ff0000",
       "category": "other",
@@ -56,29 +48,12 @@
           "downloadURL": "https://api.casp.dev/sign/unsigned/Unbound_Discord.ipa",
           "size": 94500000,
           "version": "263.0",
-          "buildVersion": null,
+          "buildVersion": "",
           "date": "2025-09-14T10:26:00+01:00",
           "localizedDescription": "Unbound for iOS",
           "minOSVersion": "15.8.3"
         }
-      ],
-      "appPermissions": {
-        "entitlements": [],
-        "privacy": {
-          "NSBluetoothAlwaysUsageDescription": "To connect to your devices",
-          "NSBluetoothPeripheralUsageDescription": "To connect to your devices",
-          "NSCameraUsageDescription": "By allowing access to your camera, you can take pictures and others will be able to see you in voice and video calls.",
-          "NSContactsUsageDescription": "We can help you find people you know on Discord. Your contacts will be regularly sent to us so you can connect with friends. You can turn this off any time.",
-          "NSLocalNetworkUsageDescription": "Allow Discord access to your local network to find devices using the same internet connection.",
-          "NSLocationAlwaysAndWhenInUseUsageDescription": "To enable services that require location",
-          "NSLocationAlwaysUsageDescription": "To enable services that require location",
-          "NSLocationWhenInUseUsageDescription": "To enable services that require location",
-          "NSMicrophoneUsageDescription": "By allowing access to your microphone, you'll be able to talk in calls.",
-          "NSPhotoLibraryAddUsageDescription": "By allowing access to your library, you'll be able to download photos and videos.",
-          "NSPhotoLibraryUsageDescription": "By allowing us access to your photos, you will be able to upload images as an avatar, server icon, and more, and you can send photos and videos to your friends and communities."
-        }
-      },
-      "patreon": {}
+      ]
     },
     {
       "name": "RespringApp",
@@ -96,20 +71,15 @@
           "downloadURL": "https://api.casp.dev/sign/unsigned/respringapp.ipa",
           "size": 300000,
           "version": "1.0",
-          "buildVersion": null,
+          "buildVersion": "",
           "date": "2025-09-14T10:17:00+01:00",
           "localizedDescription": "",
           "minOSVersion": "15.0"
         }
-      ],
-      "appPermissions": {
-        "entitlements": [],
-        "privacy": {}
-      },
-      "patreon": {}
+      ]
     },
     {
-      "name": "Wallet Faker ",
+      "name": "Wallet Faker",
       "bundleIdentifier": "com.purplesstrat.applepayfaker",
       "marketplaceID": "",
       "developerName": "purplesstrat",
@@ -124,19 +94,12 @@
           "downloadURL": "https://api.casp.dev/sign/unsigned/Apple%20Pay++_1.1_1755748678.ipa",
           "size": 1900000,
           "version": "1.1",
-          "buildVersion": null,
+          "buildVersion": "",
           "date": "2025-09-14T10:14:00+01:00",
-          "localizedDescription": null,
+          "localizedDescription": "",
           "minOSVersion": "15.0"
         }
-      ],
-      "appPermissions": {
-        "entitlements": [],
-        "privacy": {
-          "NSAccentColorName": "AccentColor"
-        }
-      },
-      "patreon": {}
+      ]
     },
     {
       "name": "Dopamine",
@@ -154,17 +117,12 @@
           "downloadURL": "https://github.com/opa334/Dopamine/releases/latest/download/Dopamine.ipa",
           "size": 53200000,
           "version": "2.4.5",
-          "buildVersion": null,
+          "buildVersion": "",
           "date": "2025-09-14T10:05:00+01:00",
-          "localizedDescription": null,
+          "localizedDescription": "",
           "minOSVersion": "15.8.3"
         }
-      ],
-      "appPermissions": {
-        "entitlements": [],
-        "privacy": {}
-      },
-      "patreon": {}
+      ]
     }
   ],
   "news": []
